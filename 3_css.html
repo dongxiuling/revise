@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    1.常见选择器
+        id
+        class
+        标签
+        div p 后代选择器
+        div>p 子代选择器
+        E+F  E后边紧邻的兄弟
+        E~F  E后边所有兄弟
+        div,p 分组选择器
+        伪类选择器 :hover{}
+        伪元素选择器 ::after{
+
+                    }
+        属性选择器 div[a]
+
+
+    2.css优先级
+        !import 最高
+        style   1000
+        id      100
+        class  伪类 属性  10  
+        标签 伪元素 1
+
+    3.float 
+        left right
+    
+        清楚浮动方式：
+            1 父元素加overflow:hidden
+            2 父元素 float
+            3 已知父元素高度 设置高
+            4 clearfix
+                .clearfix::after{
+                    content: '';
+                    display: block;
+                    clear: both;
+                }
+    4.定位 position
+        static 默认的
+        absolute 绝对定位  相对于最近已定位的祖先元素 定位后空间释放
+        relative 相对定位  相对于自己初始位置  定位后空间不释放
+        fixed  固定定位 相对浏览器位置 定位后空间释放 
+        sticky 粘性定位  相当于吸顶效果
+
+    5.盒模型
+        标准盒模型
+            width属性  content的宽度 
+        怪异盒模型（ie6 及ie6以下浏览器 不设置doctype）
+            width属性  content + padding +border 宽度
+
+        box-sizing :content-box 标准
+                    border-box 怪异
+
+    
+
+
+
+
+
+                    
+
+    
+
+
+
+
+
+
+
+
+
+</body>
+</html>
