@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            animation:  run 2s ease 3s 3 reverse forwards ;
+
+        }
+        @keyframes run {
+            0%{
+                width:200px;
+            }
+            100%{
+                width:800px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    常用属性
+
+    border-raduis box-shadow  backgroun-size: cover/ contain; 动画  弹层盒模型 
+
+    动画
+        transform 
+            rotate(30deg)
+            tranlslate()
+            scale()
+            skew
+        
+        需要改变属性 触发
+        transition: width 2s ease 3s;
+
+        可以直接执行  可以执行更复杂的动画
+        animation: run 2s ease 3s 3 reverse forwards ;
+        @keyframes run {
+
+        }
+
+
+        弹性盒模型
+        父元素：
+        display:flex
+        flex-direction：row | row-reverse | column | column-reverse
+        横向从左到右排列 |横向相反 | 即纵向从上往下排列 |纵向相反
+        align-items:flex-start | flex-end | center | baseline | stretch
+        纵轴垂直对齐方式
+        justify-content：flex-start | flex-end | center | space-between | space-around
+        横轴水平对齐方式
+
+
+
+
+
+        子元素：
+        flex: <' flex-grow '> <' flex-shrink >'? || <' flex-basis '>
+        flex-group:份数
+
+
+        <!-- 
+
+
+        水平垂直全部居中 
+            利用vertical-align,text-align,inline-block实现
+            .parent{display:table-cell; vertical-align:middle; text-align:center;}
+            .child{display:inline-block;}
+            利用绝对定位实现
+            .parent{position:relative;}
+            .child{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+            利用flex实现
+            .parent{display:flex;justify-content:center;align-items:center;}
+         -->
+
+
+
+
+
+    <div id="div1">
+
+
+    </div>
+
+    <ul >       <!-- dislplay:flex -->
+        <li></li>       <!-- flex-group:2 -->
+        <li></li>       <!-- flex-group:1 -->
+        <li></li>       <!-- flex-group:1 -->
+    </ul>
+
+    
+    
+    
+</body>
+</html>
