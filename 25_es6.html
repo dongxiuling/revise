@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    es6 新特性  
+
+    let  const  解构   set  map 箭头函数 class  promise  proxy 数组 对象新方法 模板字符串
+
+
+    let var 
+
+    <script>
+        //let没有变量提升
+        // console.log(a);
+        
+        // let a = 5;
+
+
+    
+        //2块级作用域 
+       /*  {
+            let  b = 10;
+        }
+
+        console.log(b); */
+
+       //3不能重复声明
+       /*  
+        let x = 10;
+        let x = 20;
+         */
+        //4临时失效区   在当前作用域 不允许你同名的变量进来
+        /* let c = 10;
+        function d(){
+
+            console.log(c);
+
+            let c = 20;
+        }
+        d();
+ */
+        //const 常量
+       /*  const e = 10;
+
+            e=20
+        console.log(e) */
+
+
+       /*  const arr  = [1,2,3];
+        //Object.freeze 冻结
+        Object.freeze(arr);
+        arr[0] = 0; */
+        // arr = ['a','b'];
+        /* console.log(arr);
+
+        [a,b] = [1,2]
+
+        console.log(a); */
+        
+        /* let {a} = {a:1,b:2};
+        console.log(a); */
+
+        let arr = [1,2,3,2];
+        let arr2 = new Set(arr) 
+
+        let arr3 = [...arr2];
+
+
+
+
+        
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
