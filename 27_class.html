@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        class Person{
+            constructor(name){
+                this.name = name
+            }
+            say(){
+                console.log( this.name +"say....")
+            }
+            static sleep(){
+                console.log( this.name +"say....")
+            }
+        }
+
+        class Coder extends Person{
+            constructor(name,age){
+                super(name);
+                this.age = age;
+            }
+            eat(){
+                console.log(this.name+" is eating....")
+            }
+        }
+
+        var person1 = new Person('zs');
+        person1.say();
+
+        var coder = new Coder('lisi',20);
+        console.log(coder);
+
+        coder.eat();
+        
+        
+        
+        
+    </script>
+
+    
+</body>
+</html>

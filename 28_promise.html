@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    //promise
+    就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数
+
+    • 一个promise可能有三种状态：等待（pending）、已完成（resolved ）、已拒绝（rejected）
+	• 一个promise的状态只可能从“等待”转到“完成”态或者“拒绝”态，不能逆向转换，同时“完成”态和“拒绝”态不能相互转换
+	• promise必须实现then方法（可以说，then就是promise的核心），而且then必须返回一个promise，同一个promise的then可以调用多次，并且回调的执行顺序跟它们被定义时的顺序一致
+	• then方法接受两个参数，第一个参数是成功时的回调，在promise由“等待”态转换到“完成”态时调用，另一个是失败时的回调，在promise由“等待”态转换到“拒绝”态时调用。同时，then可以接受另一个promise传入，也接受一个“类then”的对象或方法，即thenable对象。
+    解决 函数的回调嵌套 问题
+
+
+    <script>
+        
+        /* let p1 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                let res = {code:1};
+                if(res.code == 1){
+                    resolve()
+                }else{
+                    reject()
+                }
+            },1000)
+        }).then(function(){
+            console.log(111);
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    console.log(222);
+                    resolve()
+                },500)
+            })
+        }).then(function(){
+            console.log('成功');
+        }).catch(function(){
+            console.log('失败')
+        }) */
+
+
+        let P1 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                console.log(111);
+                resolve();
+            },500)
+        })
+        let P2 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                console.log(222);
+                resolve();
+            },800)
+        })
+        let P3 = new Promise(function(resolve,reject){
+            setTimeout(function(){
+                console.log(333);
+                reject();
+            },300)
+        })
+
+       /*  Promise.all([P1,P2,P3]).then(function(){
+            console.log('over ok');
+        }).catch(function(){
+            console.log('over no');
+        }) */
+
+        Promise.race([P1,P2,P3]).then(function(){
+            console.log('over ok');
+        }).catch(function(){
+            console.log('over no');
+        })
+
+
+
+
+
+
+
+    
+    
+    
+    </script>
+
+
+    
+</body>
+</html>
