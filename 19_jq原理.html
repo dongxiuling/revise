@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <!-- $('#div1').css(). -->
+    <ul>
+        <li>111</li>
+        <li class="aa">111</li>
+        <li class="aa">111</li>
+    </ul>
+
+    <script>
+        // $('#div1')
+
+        // document.getElementById("#div1").innerHTML
+
+        // $('#div1')[0].innerHTML
+        // $('#div1').get(0).innerHTML
+
+        // $(document.getElementById("#div1")).html()
+        // $('#div1')  $('.aa')
+
+        // jq最核心的是$,他是一个函数.函数中返回一个自定义的jq对象,Jquer她是一个类,
+       // 在这个类的原形下有许多jq自定义的方法.每次调用$返回一个新的jq对象,
+       // 同时在Jquery类周明华中根据传入参数的类型,函数或者字符串.
+        // 把选中的元素存在数组中,遍历这个数组,取出每个元素进行dom操作.
+        // 在每一个方法中,return this,this就是在$函数中返回的jq对象..链式操作   
+        function $(selector){
+            return new Jquery(selector)
+        }
+        function Jquery(selector){
+            //'#div1'
+            this.elements = [];
+            if(selector.charAt(0) == "#"){
+                this.elements.push(  document.getElementById( selector.substr(1) ) );
+            }
+            if(selector.charAt(0) == "."){
+                this.elements = document.getElementsByClassName( selector.substr(1) )
+            }
+            if(typeof selector == 'function'){
+                document.addEventListener('DOMContentLoaded',selector)
+            }
+        }
+        Jquery.prototype.css = function(attr,val){
+            if(typeof attr == "string" && typeof val == 'string'){
+                for(var i=0; i<this.elements.length; i++){
+                    this.elements[i].style[attr] = val;
+                }
+            }
+            return this;
+        }
+        Jquery.prototype.on = function(eventName,fn){
+             for(var i=0; i<this.elements.length; i++){
+                 this.elements[i].addEventListener(eventName,fn);
+             }
+             return this;
+        }
+
+        // $('#div1')
+        $('.aa').css('background','red').on('click',function(){
+            console.log('1111');
+        })   
+        // $('.aa').on('click',function(){
+        //     console.log('22');
+        // })   
+
+        // $('.aa').css({
+        //     background:'red',
+        //     width:300
+        // });  
+
+
+        // addEventListener
+        // $(function(){  //DOMContentLoaded  
+        //     console.log(111)
+        // })
+        // $(function(){  //DomContentLoad  
+        //     console.log(22)
+        // })
+
+
+        // window.onload = function(){
+        //     console.log(1111)
+        // }
+        // window.onload = function(){
+        //     console.log(222)
+        // }
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+    
+    
+    </script>
+
+
+
+    
+</body>
+</html>
